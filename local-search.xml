@@ -11,6 +11,18 @@
     <content type="html"><![CDATA[<h1 id="markdown学习之旅"><a href="#markdown学习之旅" class="headerlink" title="markdown学习之旅"></a>markdown学习之旅</h1><p>今天开始学习markdown的语法，以后也将会用markdown记录学习过程，俗话说好记性不如 <del>烂笔头</del> 键盘。</p><p>markdown语法大概分为两个部分 <strong><a href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95">基础语法</a></strong> 与 <strong><a href="#%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95">扩展语法</a></strong> ，一起学习吧 &#x1F60F; 。</p><h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><h3 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h3><pre><code class="hljs">#    // 一级标题##   // 二级标题###  // 三级标题</code></pre><h3 id="强调语法"><a href="#强调语法" class="headerlink" title="强调语法"></a>强调语法</h3><pre><code class="hljs">* &amp; _       // 表示斜体,如强调的内容在单词或短语中间用*** &amp; __     // 表示粗体**_ &amp; __*   // 表示粗斜体</code></pre><h3 id="引用语法"><a href="#引用语法" class="headerlink" title="引用语法"></a>引用语法</h3><pre><code class="hljs">&gt;     // 单行块引用&gt;     // 多行块引用&gt;     // 多行块引用&gt;     // 嵌套块引用&gt;&gt;    // 嵌套块引用&gt; *sheny* // 块引用其他元素</code></pre><h3 id="列表语法"><a href="#列表语法" class="headerlink" title="列表语法"></a>列表语法</h3><pre><code class="hljs">1.    // 数字与英文句号组成有序列表2.3.* &amp; _ &amp; +  // 单个字符组成无序列表* sheny    // 列表嵌套* sheny    * sheny    * sheny* sheny    // 嵌套块引用* sheny    &gt; sheny    &gt;sheny* sheny    // 嵌套代码块需要使用八个空格或两个制表符* sheny    &lt;html&gt;        &lt;head&gt;             &lt;title&gt;Test&lt;/title&gt;        &lt;/head&gt;</code></pre><h3 id="代码语法"><a href="#代码语法" class="headerlink" title="代码语法"></a>代码语法</h3><pre><code class="hljs">`        // 反引号包裹``       // 反引号的转义&lt;html&gt;   // 用四个空格或一个制表符创建代码块    &lt;head&gt;    &lt;/head&gt;&lt;/html&gt;</code></pre><h3 id="分隔线语法"><a href="#分隔线语法" class="headerlink" title="分隔线语法"></a>分隔线语法</h3><pre><code class="hljs">*** &amp; --- &amp; ____  // 三个字符创建分割线，且不能有其他内容，且应该前后均留空白行</code></pre><h3 id="链接语法"><a href="#链接语法" class="headerlink" title="链接语法"></a>链接语法</h3><pre><code class="hljs">[链接显示名](链接地址 &quot;链接title&quot;)  // 如下</code></pre><p><a href="https://markdown.com.cn/basic-syntax/links.html" title="快去吧">MarkDown语法官方</a></p><pre><code class="hljs">&lt;https://shenysec.github.io&gt; // 网站&lt;shenysec@github.com&gt;        // 邮箱这是到**[google](www.google.com)**的超链接 // 带格式化链接[asdad] [1]  // 引用类型链接，需与下部分一起使用[1]: https:shenysec.github.io (title) // 这部分格式比较自由</code></pre><h3 id="图片语法"><a href="#图片语法" class="headerlink" title="图片语法"></a>图片语法</h3><pre><code class="hljs">![图片alt](图片链接 &quot;图片title&quot;)[![图片alt](图片链接 &quot;图片title&quot;)](链接地址) // 图片添加链接，链接语法的嵌套</code></pre><h2 id="扩展语法"><a href="#扩展语法" class="headerlink" title="扩展语法"></a>扩展语法</h2><h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><pre><code class="hljs">| Syntax      | Description |  // --- 创建标题 | 分膈每列 | ----------- | ----------- || Header      | Title       || Paragraph   | Text        |</code></pre><p>官方推荐的在线图形化表格创建<a href="https://www.tablesgenerator.com/markdown_tables">Markdown Tables Generator</a></p><pre><code class="hljs">| Syntax      | Description | Test Text     || :---        |    :----:   |          ---: | // 表格对齐| Header      | Title       | [sheny]()     | // 添加链接| Paragraph   | Text        | `code`        | // 表格添加代码块</code></pre><h3 id="围栏代码块"><a href="#围栏代码块" class="headerlink" title="围栏代码块"></a>围栏代码块</h3><figure class="highlight json"><figcaption><span> </span><a href="//">输入对应语言实现语法高亮</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br><span class="hljs-attr">&quot;firstName&quot;</span>: <span class="hljs-string">&quot;John&quot;</span>,<br><span class="hljs-attr">&quot;lastName&quot;</span>: <span class="hljs-string">&quot;Smith&quot;</span>,<br><span class="hljs-attr">&quot;age&quot;</span>: <span class="hljs-number">25</span><br>&#125;<br></code></pre></td></tr></table></figure><h3 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h3><pre><code class="hljs">这是脚注[^1]  // 如下，类似引用类型链接，hexo好像不支持脚注，很烦</code></pre><h3 id="标题编号"><a href="#标题编号" class="headerlink" title="标题编号"></a>标题编号</h3><pre><code class="hljs">### 标题 &#123;#name&#125;  // 使用链接，链接到这个标题，&#123;#是hexo的注释保留符，这俩会冲突但是hexo会有默认的title，直接链接title就可以了</code></pre><h3 id="定义列表"><a href="#定义列表" class="headerlink" title="定义列表"></a>定义列表</h3><pre><code class="hljs">First Term    // ：+空格 创建定义列表: This is the definition of the first term.</code></pre><h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><pre><code class="hljs">~~   // 使用两个波浪符号包括删除线，波浪号前面需要有空格</code></pre><h3 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h3><pre><code class="hljs">- [x] Write the press release  // 创建一个带复选框的列表+ [ ] Update the website+ [ ] Contact the media</code></pre><h3 id="使用Emoji"><a href="#使用Emoji" class="headerlink" title="使用Emoji"></a>使用Emoji</h3><pre><code class="hljs">:joy: // 使用冒号包裹emoji简码，简码如下：emoji简码在markdown中有两种使用方法通用代码 Unicode：   // hexo 只支持通用代码，到处都是坑    使用格式为：:+对应英文单词+:&amp;#x+unicode+;非通用代码：    使用格式为：:+对应英文单词+:</code></pre><p><a href="http://www.unicode.org/emoji/charts/full-emoji-list.html" title="Unicode">Emoji Unicode全列表</a></p><p><a href="https://www.webfx.com/tools/emoji-cheat-sheet/">Emoji 简易代码全列表</a></p><h3 id="自动网址链接"><a href="#自动网址链接" class="headerlink" title="自动网址链接"></a>自动网址链接</h3><pre><code class="hljs">https:shenysec.github.io    // markdown会自动链接url`https:shenysec.github.io`  // 禁用自动url链接</code></pre>]]></content>
     
     
+    <categories>
+      
+      <category>杂学</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>markdown</tag>
+      
+    </tags>
     
   </entry>
   
@@ -23,6 +35,12 @@
     
     <content type="html"><![CDATA[<p>大概从今天开始记录。俗话说好记性不如烂笔头。</p>]]></content>
     
+    
+    <categories>
+      
+      <category>吐槽</category>
+      
+    </categories>
     
     
   </entry>
@@ -37,18 +55,11 @@
     <content type="html"><![CDATA[<p>好久没看blog了差点搞忘记咋搞了</p><p>markdown也没有学，域名也过期了，哎</p>]]></content>
     
     
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/2021/11/30/hello-world/"/>
-    <url>/2021/11/30/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
+    <categories>
+      
+      <category>吐槽</category>
+      
+    </categories>
     
     
   </entry>
