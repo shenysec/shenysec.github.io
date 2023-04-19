@@ -77,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"shenysec.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"shenysec.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -287,15 +287,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip3 install arjun<br></code></pre></td></tr></table></figure>
 <p>注：kali自带python2与python3环境但缺少pip，所以需先安装pip</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install python3-pip<br></code></pre></td></tr></table></figure>
-<p><img src="/img/arjun1.jpg" srcset="/img/loading.gif" lazyload alt="安装arjun"></p>
+<p><img src="/img/arjun1.jpg" alt="安装arjun"></p>
 <h2 id="参数详情"><a href="#参数详情" class="headerlink" title="参数详情"></a>参数详情</h2><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs prolog">usage: arjun [-h] [-u <span class="hljs-symbol">URL</span>] [-o <span class="hljs-symbol">JSON_FILE</span>] [-oT <span class="hljs-symbol">TEXT_FILE</span>] [-oB [<span class="hljs-symbol">BURP_PORT</span>]] [-d <span class="hljs-symbol">DELAY</span>]<br>             [-t <span class="hljs-symbol">THREADS</span>] [-w <span class="hljs-symbol">WORDLIST</span>] [-m <span class="hljs-symbol">METHOD</span>] [-i [<span class="hljs-symbol">IMPORT_FILE</span>]] [-<span class="hljs-symbol">T</span> <span class="hljs-symbol">TIMEOUT</span>] [-c <span class="hljs-symbol">CHUNKS</span>]<br>             [-q] [--headers [<span class="hljs-symbol">HEADERS</span>]] [--passive [<span class="hljs-symbol">PASSIVE</span>]] [--stable] [--include <span class="hljs-symbol">INCLUDE</span>]<br>             [--disable-redirects]<br><br>optional arguments:<br>  -h, --help            查看帮助信息并退出<br>  -u <span class="hljs-symbol">URL</span>                指定目标 <span class="hljs-symbol">URL</span><br>  -o <span class="hljs-symbol">JSON_FILE</span>, -oJ <span class="hljs-symbol">JSON_FILE</span><br>                        指定json输出文件路径.<br>  -oT <span class="hljs-symbol">TEXT_FILE</span>         指定text输出文件路径.<br>  -oB [<span class="hljs-symbol">BURP_PORT</span>]       输出到 <span class="hljs-symbol">Burp</span> <span class="hljs-symbol">Suite</span> 代理的端口。 默认端口为 <span class="hljs-number">8080.</span><br>  -d <span class="hljs-symbol">DELAY</span>              指定请求延迟（以秒为单位）. (default: <span class="hljs-number">0</span>)<br>  -t <span class="hljs-symbol">THREADS</span>            指定线程数. (default: <span class="hljs-number">5</span>)<br>  -w <span class="hljs-symbol">WORDLIST</span>           指定字典路径. (default: &#123;arjundir&#125;/db/large.txt)<br>  -m <span class="hljs-symbol">METHOD</span>             指定请求模式: <span class="hljs-symbol">GET</span>/<span class="hljs-symbol">POST</span>/<span class="hljs-symbol">XML</span>/<span class="hljs-symbol">JSON</span>/<span class="hljs-symbol">HEADERS</span>. (default: <span class="hljs-symbol">GET</span>)<br>  -i [<span class="hljs-symbol">IMPORT_FILE</span>]      从指定文件获取<span class="hljs-symbol">URLs</span>.<br>  -<span class="hljs-symbol">T</span> <span class="hljs-symbol">TIMEOUT</span>            <span class="hljs-symbol">HTTP</span> 请求超时秒数. (default: <span class="hljs-number">15</span>)<br>  -c <span class="hljs-symbol">CHUNKS</span>             请求块大小，一次发送的参数数量. (default: <span class="hljs-number">25</span>)<br>  -q                    <span class="hljs-symbol">Quiet</span> mode. 无输出.<br>  --headers [<span class="hljs-symbol">HEADERS</span>]   指定请求头，以行分隔.<br>  --passive [<span class="hljs-symbol">PASSIVE</span>]   被动收集参数模式.<br>  --stable              稳定优先模式.<br>  --include <span class="hljs-symbol">INCLUDE</span>     自定义请求包含数据.<br>  --disable-redirects   禁止重定向<br><br></code></pre></td></tr></table></figure>
 
 <h2 id="原理详情"><a href="#原理详情" class="headerlink" title="原理详情"></a>原理详情</h2><h3 id="使用proxychains4-把arjun流量代理到burp-suite"><a href="#使用proxychains4-把arjun流量代理到burp-suite" class="headerlink" title="使用proxychains4 把arjun流量代理到burp suite:"></a>使用proxychains4 把arjun流量代理到burp suite:</h3><p>编辑proxychains4配置文件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /etc/proxychains4.conf<br></code></pre></td></tr></table></figure>
-<p>在Proxylist填写burp suite代理端口，我这里是8080：<br><img src="/img/arjun2.jpg" srcset="/img/loading.gif" lazyload alt="proxychains4代理设置"><br>代理arjun：</p>
+<p>在Proxylist填写burp suite代理端口，我这里是8080：<br><img src="/img/arjun2.jpg" alt="proxychains4代理设置"><br>代理arjun：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">proxychains4 arjun -u http://127.1:80/<span class="hljs-built_in">test</span> -oT result.txt<br></code></pre></td></tr></table></figure>
 <p>查看arjun数据包：</p>
-<p><img src="/img/arjun3.jpg" srcset="/img/loading.gif" lazyload alt="arjun 1"><br><img src="/img/arjun4.jpg" srcset="/img/loading.gif" lazyload alt="arjun 2"><br><img src="/img/arjun5.jpg" srcset="/img/loading.gif" lazyload alt="arjun 3"><br>Arjun会将参数分为25个块，一个块400个参数，根据response的长度判断是否有有效参数，若有有效参数，进一步二分，判断有效参数，只需要向目标发送30-5个请求即可完成任务。</p>
+<p><img src="/img/arjun3.jpg" alt="arjun 1"><br><img src="/img/arjun4.jpg" alt="arjun 2"><br><img src="/img/arjun5.jpg" alt="arjun 3"><br>Arjun会将参数分为25个块，一个块400个参数，根据response的长度判断是否有有效参数，若有有效参数，进一步二分，判断有效参数，只需要向目标发送30-5个请求即可完成任务。</p>
 
                 
               </div>
@@ -410,21 +410,20 @@
             
   
   
-    <article id="comments" lazyload>
+    <article id="comments">
       
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
     
-      <script type="text/javascript">
-        var disqus_config = function() {
-          this.page.url = 'https://shenysec.github.io/2023/03/21/arjun%E5%88%9D%E6%8E%A2/';
-          this.page.identifier = '/2023/03/21/arjun%E5%88%9D%E6%8E%A2/';
-        };
+      <script>
         Fluid.utils.loadComments('#disqus_thread', function() {
-          var d = document, s = d.createElement('script');
-          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
+          Fluid.utils.createCssLink('https://lib.baomitu.com/disqusjs/1.3.0/disqusjs.css');
+          Fluid.utils.createScript('https://lib.baomitu.com/disqusjs/1.3.0/disqus.js', function() {
+            new DisqusJS({
+              shortname: 'fluid',
+              apikey: ''
+            });
+          });
         });
       </script>
     
@@ -599,10 +598,6 @@
 
 
 
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
 
 
 

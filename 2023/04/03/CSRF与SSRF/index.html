@@ -24,7 +24,7 @@
 <meta property="og:description" content="何为CSRFCSRF (Cross-Site Request Forgery) 即跨站请求伪造，CSRF利用的是对用户浏览器的信任，如果用户登陆了一个网站浏览器就会保存用户的cookie，以后对该域的的每一个请求都会携带用户凭证（cookie），这时攻击者发送了某个操作的链接给用户，用户点击之后，就会携带自己的cookie发起请求，完成相应的操作。 CSRF的分类[1]GET类型对应的csrf是通">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-03T07:49:43.000Z">
-<meta property="article:modified_time" content="2023-04-03T17:58:12.320Z">
+<meta property="article:modified_time" content="2023-04-13T10:31:50.700Z">
 <meta property="article:author" content="sheny">
 <meta property="article:tag" content="CSRF SSRF">
 <meta name="twitter:card" content="summary_large_image">
@@ -71,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"shenysec.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"shenysec.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":false,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -289,7 +289,7 @@
 <h3 id="其他类型"><a href="#其他类型" class="headerlink" title="其他类型"></a>其他类型</h3><p>过基础认证的csrf,通常用于路由器：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://admin:admin@192.168.1.1&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
 <p>加载图片后，路由器会给用户一个合法的session。</p>
-<h2 id="CSRF的防御"><a href="#CSRF的防御" class="headerlink" title="CSRF的防御"></a>CSRF的防御</h2><h3 id="验证-Referer"><a href="#验证-Referer" class="headerlink" title="验证 Referer"></a>验证 Referer</h3><p>referer 记录了http请求的来源地址，因为csrf攻击一般都是通过跨域发起的请求，所有验证referer是否来自本域或者上一级页面能够有效防止部分csrf，<br>但因为referer是依赖第三方来保障的（例如浏览器），所以此方法并不算安全。</p>
+<h2 id="CSRF的防御"><a href="#CSRF的防御" class="headerlink" title="CSRF的防御"></a>CSRF的防御</h2><h3 id="验证-Referer"><a href="#验证-Referer" class="headerlink" title="验证 Referer"></a>验证 Referer</h3><p>referer 记录了http请求的来源地址，因为csrf攻击一般都是通过跨域发起的请求，所有验证referer是否来自本域或者上一级页面能够有效防止部分csrf，但因为referer是依赖第三方来保障的（例如浏览器），所以此方法并不算安全。</p>
 <h3 id="token"><a href="#token" class="headerlink" title="token"></a>token</h3><p>从csrf的实现原理来看，是因为攻击者能够构造用户的请求，所以可以在http请求里以参数的形式加入一个随机的token，并在服务器建立一个拦截器验证这个token，相对于referer，token要更加安全一些。但是token的安全也是难以保证万无一失的，在一些支持用户自己发表内容的网站上，如果攻击者把个人网站发布在上面，当用户点击之后也可能携带自己的token去访问，这样攻击者就可以得到这个token。如果在添加token功能处添加判断，当通向他域的时候不添加token，攻击者也可以通过referer拿到这个token值。所以添加token的方法也并不完美。</p>
 <h3 id="http头自定义属性"><a href="#http头自定义属性" class="headerlink" title="http头自定义属性"></a>http头自定义属性</h3><p>这种形式是通过把token放置到http头自定义属性里，通过XMLHttpRequest这个类，可以一次性给所有该类请求加上csrftoken这个HTTP头属性，并把token值放入其中。这样解决了上种方法在请求中加入token的不便，同时，通过XMLHttpRequest请求的地址不会被记录到浏览器的地址栏，也不用担心token会透过Referer泄露到其他网站中去。然而这种方法的局限性非常大。XMLHttpRequest请求通常用于Ajax方法中对于页面局部的异步刷新，并非所有的请求都适合用这个类来发起，而且通过该类请求得到的页面不能被浏览器所记录下，从而进行前进，后退，刷新，收藏等操作，给用户带来不便。另外，对于没有进行CSRF防护的遗留系统来说，要采用这种方法来进行防护，要把所有请求都改为XMLHttpRequest请求，这样几乎是要重写整个网站，这代价无疑是不能接受的。</p>
 <h3 id="使用严格的-SameSite"><a href="#使用严格的-SameSite" class="headerlink" title="使用严格的 SameSite"></a>使用严格的 SameSite</h3><p>Cookie 有一个 SameSite 属性，设置为严格模式（非 none 值），可以让其他网站的中跨域请求不带上 Cookie。</p>
@@ -366,7 +366,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%AE%89%E5%85%A8/" class="category-chain-item">安全</a>
+  <a href="/categories/web%E5%AE%89%E5%85%A8/" class="category-chain-item">web安全</a>
   
   
 
@@ -462,21 +462,20 @@
             
   
   
-    <article id="comments" lazyload>
+    <article id="comments">
       
   <div class="disqus" style="width:100%">
     <div id="disqus_thread"></div>
     
-      <script type="text/javascript">
-        var disqus_config = function() {
-          this.page.url = 'https://shenysec.github.io/2023/04/03/CSRF%E4%B8%8ESSRF/';
-          this.page.identifier = '/2023/04/03/CSRF%E4%B8%8ESSRF/';
-        };
+      <script>
         Fluid.utils.loadComments('#disqus_thread', function() {
-          var d = document, s = d.createElement('script');
-          s.src = '//' + 'fluid' + '.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
+          Fluid.utils.createCssLink('https://lib.baomitu.com/disqusjs/1.3.0/disqusjs.css');
+          Fluid.utils.createScript('https://lib.baomitu.com/disqusjs/1.3.0/disqus.js', function() {
+            new DisqusJS({
+              shortname: 'fluid',
+              apikey: ''
+            });
+          });
         });
       </script>
     
@@ -651,10 +650,6 @@
 
 
 
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
 
 
 
