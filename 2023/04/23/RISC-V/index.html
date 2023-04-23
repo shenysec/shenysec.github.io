@@ -16,17 +16,17 @@
   <meta name="author" content="sheny">
   <meta name="keywords" content="">
   
-    <meta name="description" content="RV32I 寄存器   通用寄存器 别名 功能 维护    x0 zero 零寄存器 N&#x2F;A   x1 ra return adress Caller   x2 sp 栈指针 Callee   x3 gp 全局指针    x4 tp 线程指针    x5 t0 临时寄存器or替代链接寄存器 Caller   x6-x7 t1-t2 临时寄存器 Caller   x8 s0&#x2F;fp 保存寄存器 Cal">
+    <meta name="description" content="RISC-VRISC-V 是多个 RV 指令集系列的总称，是一个开源的指令集，它遵循模块化设计理念，核心是一个名为 RV32I 的基础 ISA  RV32I 寄存器   通用寄存器 别名 功能 维护    x0 zero 零寄存器 N&#x2F;A   x1 ra return adress Caller   x2 sp 栈指针 Callee   x3 gp 全局指针    x4 tp 线程指针    x5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RISC-V">
 <meta property="og:url" content="https://shenysec.github.io/2023/04/23/RISC-V/index.html">
 <meta property="og:site_name" content="Shenysec">
-<meta property="og:description" content="RV32I 寄存器   通用寄存器 别名 功能 维护    x0 zero 零寄存器 N&#x2F;A   x1 ra return adress Caller   x2 sp 栈指针 Callee   x3 gp 全局指针    x4 tp 线程指针    x5 t0 临时寄存器or替代链接寄存器 Caller   x6-x7 t1-t2 临时寄存器 Caller   x8 s0&#x2F;fp 保存寄存器 Cal">
+<meta property="og:description" content="RISC-VRISC-V 是多个 RV 指令集系列的总称，是一个开源的指令集，它遵循模块化设计理念，核心是一个名为 RV32I 的基础 ISA  RV32I 寄存器   通用寄存器 别名 功能 维护    x0 zero 零寄存器 N&#x2F;A   x1 ra return adress Caller   x2 sp 栈指针 Callee   x3 gp 全局指针    x4 tp 线程指针    x5">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://shenysec.github.io/img/isa6.jpg">
 <meta property="og:image" content="https://shenysec.github.io/img/rv32iisa.jpg">
 <meta property="article:published_time" content="2023-04-23T02:42:26.000Z">
-<meta property="article:modified_time" content="2023-04-23T03:42:55.035Z">
+<meta property="article:modified_time" content="2023-04-23T04:39:44.130Z">
 <meta property="article:author" content="sheny">
 <meta property="article:tag" content="RISC-V">
 <meta name="twitter:card" content="summary_large_image">
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          547 字
+          773 字
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          5 分钟
+          7 分钟
         
       </span>
     
@@ -291,7 +291,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年4月23日 中午
+                    本文最后更新于：2023年4月23日 下午
                   
                 
               </p>
@@ -299,7 +299,8 @@
             
               <div class="markdown-body">
                 
-                <h1 id="RV32I-寄存器"><a href="#RV32I-寄存器" class="headerlink" title="RV32I 寄存器"></a>RV32I 寄存器</h1><table>
+                <h1 id="RISC-V"><a href="#RISC-V" class="headerlink" title="RISC-V"></a>RISC-V</h1><p>RISC-V 是多个 RV 指令集系列的总称，是一个开源的指令集，它遵循模块化设计理念，核心是一个名为 RV32I 的基础 ISA </p>
+<h1 id="RV32I-寄存器"><a href="#RV32I-寄存器" class="headerlink" title="RV32I 寄存器"></a>RV32I 寄存器</h1><table>
 <thead>
 <tr>
 <th>通用寄存器</th>
@@ -493,8 +494,17 @@
 <td></td>
 </tr>
 </tbody></table>
-<h1 id="RV32I-基础指令-47"><a href="#RV32I-基础指令-47" class="headerlink" title="RV32I 基础指令(47)"></a>RV32I 基础指令(47)</h1><p><img src="/img/isa6.jpg" alt="RV32I的6种指令格式"></p>
-<p><img src="/img/rv32iisa.jpg" alt="RV32I的指令"></p>
+<h1 id="RV32I-基础指令-47"><a href="#RV32I-基础指令-47" class="headerlink" title="RV32I 基础指令(47)"></a>RV32I 基础指令(47)</h1><h2 id="指令格式"><a href="#指令格式" class="headerlink" title="指令格式"></a>指令格式</h2><p>RISC-V ISA 是变长指令结构，但 RV32I 指令是固定长度，一条指令为32个bit，也就是4个字节，有6种指令格式：</p>
+<ul>
+<li> R 类型指令：用于寄存器-寄存器操作</li>
+<li> I 类型指令：用于短立即数和访存 load 操作</li>
+<li> S 类型指令：用于访存 store 操作</li>
+<li> B 类型指令：用于条件跳转操作</li>
+<li> U 类型指令：用于长立即数</li>
+<li> J 类型指令：用于无条件跳转</li>
+</ul>
+<p><img src="/img/isa6.jpg" alt="RV32I的6种指令格式"></p>
+<h2 id="基础指令"><a href="#基础指令" class="headerlink" title="基础指令"></a>基础指令</h2><p><img src="/img/rv32iisa.jpg" alt="RV32I的指令"></p>
 
                 
               </div>
