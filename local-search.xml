@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>RISC-V</title>
+    <link href="/2023/04/23/RISC-V/"/>
+    <url>/2023/04/23/RISC-V/</url>
+    
+    <content type="html"><![CDATA[<h1 id="RV32I-寄存器"><a href="#RV32I-寄存器" class="headerlink" title="RV32I 寄存器"></a>RV32I 寄存器</h1><table><thead><tr><th>通用寄存器</th><th>别名</th><th>功能</th><th>维护</th></tr></thead><tbody><tr><td>x0</td><td>zero</td><td>零寄存器</td><td>N/A</td></tr><tr><td>x1</td><td>ra</td><td>return adress</td><td>Caller</td></tr><tr><td>x2</td><td>sp</td><td>栈指针</td><td>Callee</td></tr><tr><td>x3</td><td>gp</td><td>全局指针</td><td></td></tr><tr><td>x4</td><td>tp</td><td>线程指针</td><td></td></tr><tr><td>x5</td><td>t0</td><td>临时寄存器or替代链接寄存器</td><td>Caller</td></tr><tr><td>x6-x7</td><td>t1-t2</td><td>临时寄存器</td><td>Caller</td></tr><tr><td>x8</td><td>s0/fp</td><td>保存寄存器</td><td>Callee</td></tr><tr><td>x9</td><td>s1</td><td>保存寄存器</td><td>Callee</td></tr><tr><td>x10-x11</td><td>a0-a1</td><td>函数参数or返回值</td><td>Caller</td></tr><tr><td>x12-17</td><td>a2-a7</td><td>函数参数</td><td>Caller</td></tr><tr><td>x18-x27</td><td>s2-s11</td><td>保存寄存器</td><td>Callee</td></tr><tr><td>x28-x31</td><td>t3-t6</td><td>临时寄存器</td><td></td></tr></tbody></table><h1 id="控制状态寄存器CSR"><a href="#控制状态寄存器CSR" class="headerlink" title="控制状态寄存器CSR"></a>控制状态寄存器CSR</h1><table><thead><tr><th>通用寄存器</th><th>访问属性</th><th>功能</th><th></th></tr></thead><tbody><tr><td>mvendorid</td><td>R</td><td>厂商ID</td><td></td></tr><tr><td>marchId</td><td>R</td><td>体系结构id</td><td></td></tr><tr><td>mimpid</td><td>R</td><td>特点实现id</td><td></td></tr><tr><td>mhartid</td><td>R</td><td>hart(硬件线程) id</td><td></td></tr><tr><td>misa</td><td>R</td><td>指令集架构信息</td><td></td></tr><tr><td>mcycle/mycycleh</td><td>R</td><td>时钟周期计数器</td><td></td></tr><tr><td>cycle/ycycleh</td><td>R</td><td>时钟周期计数器</td><td></td></tr><tr><td>minstret</td><td>R</td><td>退休指令计数器</td><td></td></tr><tr><td>mstatus</td><td>RW</td><td>状态控制</td><td></td></tr><tr><td>mie</td><td>RW</td><td>中断使能</td><td></td></tr><tr><td>mip</td><td>R</td><td>当前中断pengding位</td><td></td></tr><tr><td>mtvec</td><td>RW</td><td>中断/异常矢量</td><td></td></tr><tr><td>mtval</td><td>RW</td><td>异常和中断的补充信息（如异常指令，非法地址）</td><td></td></tr><tr><td>mscratch</td><td>RW</td><td>提供一个上下文保存寄存器</td><td></td></tr><tr><td>mepc</td><td>RW</td><td>异常程序指针</td><td></td></tr><tr><td>mcause</td><td>R</td><td>异常/中断原因</td><td></td></tr></tbody></table><h1 id="RV32I-基础指令-47"><a href="#RV32I-基础指令-47" class="headerlink" title="RV32I 基础指令(47)"></a>RV32I 基础指令(47)</h1><p><img src="/img/isa6.jpg" alt="RV32I的6种指令格式"></p><p><img src="/img/rv32iisa.jpg" alt="RV32I的指令"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>杂学</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>RISC-V</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>kerbros</title>
     <link href="/2023/04/13/NTLM%E4%B8%8Ekerbros/"/>
     <url>/2023/04/13/NTLM%E4%B8%8Ekerbros/</url>
