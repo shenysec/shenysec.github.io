@@ -4,6 +4,50 @@
   
   
   <entry>
+    <title>工具</title>
+    <link href="/2023/05/12/%E5%B7%A5%E5%85%B7/"/>
+    <url>/2023/05/12/%E5%B7%A5%E5%85%B7/</url>
+    
+    <content type="html"><![CDATA[<h1 id="扫描-amp-信息收集类"><a href="#扫描-amp-信息收集类" class="headerlink" title="扫描&amp;信息收集类"></a>扫描&amp;信息收集类</h1><h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><ul><li>arjun<pre><code class="hljs">  参数扫描，使用二分法暴力破解</code></pre></li><li>CTFR<pre><code class="hljs">  子域名枚举与爆破，在该工具的帮助下，获取一个HTTPS网站的所有子域名。该工具使用的是证书透明度日志来实现其功能</code></pre></li><li>dotdotslash<pre><code class="hljs">  目录遍历漏洞检测</code></pre></li><li>dirsearch<pre><code class="hljs">  目录扫描</code></pre></li><li>eyewitness<pre><code class="hljs">  批量网站截图获取</code></pre></li><li>Packer-Fuzzer<pre><code class="hljs">  api提取，针对使用webpack打包网站</code></pre></li><li>S3Scanner<pre><code class="hljs">  S3 Bucket的安全扫描工具，快速扫描和识别不安全的公开S3 Bucket，并转储其中的数据内容</code></pre></li><li>53R3N17Y<pre><code class="hljs">  信息收集工具，快速收集与目标主机、IP地址或域名的相关信息。该工具基于hackertarget.com来收集与目标相关的详细信息，因此针对单个IP地址</code></pre></li></ul><h2 id="golang"><a href="#golang" class="headerlink" title="golang"></a>golang</h2><ul><li>Popeye<pre><code class="hljs">  Kubernetes集群配置与资源安全扫描工具，该工具可以实时扫描Kubernetes集群，并报告部署的资源和配置的潜在问题。Popeye可以根据部署的内容而不是磁盘上的内容来清理集群。通过扫描集群，它可以检测错误配置</code></pre></li><li>JSubFinder<pre><code class="hljs">  敏感信息搜索工具，寻找目标网站页面JavaScript中隐藏的子域名和敏感信息</code></pre></li></ul><h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><h2 id="powershell"><a href="#powershell" class="headerlink" title="powershell"></a>powershell</h2><ul><li>Invoke-Transfer<pre><code class="hljs">  Windows剪贴板数据提取与传输工具。利用剪贴板功能实现文件或数据的传输，例如Citrix、RDP、VNC、Guacamole等。只要我们可以通过剪贴板发送文本，我们就能够以文本格式来发送文件（通过小型的Base64编码数据块）。除此之外，我们甚至还可以使用Windows原生的OCR功能并利用一个屏幕截图来发送文件。</code></pre></li></ul><h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2><ul><li>reverse-sourcemap<pre><code class="hljs">  sourcemap还原js</code></pre></li></ul><h1 id="绕过类"><a href="#绕过类" class="headerlink" title="绕过类"></a>绕过类</h1><ul><li>byp4xx<pre><code class="hljs">  绕过 40X 响应的 Python 脚本</code></pre></li></ul><h1 id="代理类"><a href="#代理类" class="headerlink" title="代理类"></a>代理类</h1><h1 id="注入-amp-后门类"><a href="#注入-amp-后门类" class="headerlink" title="注入&amp;后门类"></a>注入&amp;后门类</h1><h2 id="python-1"><a href="#python-1" class="headerlink" title="python"></a>python</h2><ul><li>PBG<pre><code class="hljs">  PowerShell后门生成工具，并使用Python来对代码进行混淆处理，而且每一次构建后都会提供新的签名以实现检测绕过</code></pre></li><li>Sandman<pre><code class="hljs">  基于NTP的强大后门工具，Sandman可以充当Stager使用，该工具利用了NTP（时间同步协议）从预定义的服务器获取并运行任意Shell代码</code></pre></li></ul><h2 id="c"><a href="#c" class="headerlink" title="c"></a>c</h2><ul><li>Mimikatz<pre><code class="hljs">  密码抓取与横向</code></pre></li></ul><h2 id="c-1"><a href="#c-1" class="headerlink" title="c++"></a>c++</h2><ul><li>FUD-UUID-Shellcode<pre><code class="hljs">  一款功能强大的Shellcode注入工具，并使用了异或XOR加密技术UUID字符串混淆来尝试绕过Windows Defender</code></pre></li></ul><h2 id="c-2"><a href="#c-2" class="headerlink" title="c#"></a>c#</h2><ul><li>AVIator<pre><code class="hljs">  AV检测绕过工具，从本质上来说，该工具是一个后门生成实用工具，该工具使用了加密技术和注入技术来尝试绕过反病毒产品的检测</code></pre></li></ul><h1 id="检测类"><a href="#检测类" class="headerlink" title="检测类"></a>检测类</h1><h2 id="PowerShell"><a href="#PowerShell" class="headerlink" title="PowerShell"></a>PowerShell</h2><ul><li>Revoke-Obfuscation<pre><code class="hljs">  PowerShell混淆检测框架，并且兼容PowerShell v3.0+脚本</code></pre></li></ul><h2 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h2><ul><li>QRExfiltrate<pre><code class="hljs">  数据转换与提取工具，二进制文件转换为二维码GIF图像，而这些数据随后可以通过重新组装，从而从空气间隙系统中实现数据提取</code></pre></li></ul><h1 id="框架类"><a href="#框架类" class="headerlink" title="框架类"></a>框架类</h1><ul><li>MegPlus<pre><code class="hljs">  Golang、Python 2或3、PHP7.0  一款功能强大的自动化网络侦查任务执行框架，自动化的形式执行多种网络侦查任务。该工具支持针对某个目标执行常见问题扫描并生成详细的分析报告。除此之外，该工具还具备一定的渗透测试功能。</code></pre></li></ul><h1 id="逆向类"><a href="#逆向类" class="headerlink" title="逆向类"></a>逆向类</h1><ul><li>Adhrit<pre><code class="hljs">  Linux&amp;macOS、Python 3、Java JDK  Android移动端操作系统的安全分析工具，该工具可以帮助广大研究人员根据Ghera基准，深入执行渗透测试侦查阶段的任务并进行静态字节码分析。</code></pre></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>工具</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>绕过那只WAF</title>
+    <link href="/2023/05/12/%E7%BB%95%E8%BF%87%E9%82%A3%E5%8F%AAWAF/"/>
+    <url>/2023/05/12/%E7%BB%95%E8%BF%87%E9%82%A3%E5%8F%AAWAF/</url>
+    
+    <content type="html"><![CDATA[<h1 id="WAF-为何"><a href="#WAF-为何" class="headerlink" title="WAF 为何"></a>WAF 为何</h1><p>WAF的全称是（Web Application Firewall）即web应用防火墙，简称WAF</p><h1 id="WAF-分类"><a href="#WAF-分类" class="headerlink" title="WAF 分类"></a>WAF 分类</h1><h2 id="非嵌入式"><a href="#非嵌入式" class="headerlink" title="非嵌入式"></a>非嵌入式</h2><h3 id="硬件-WAF"><a href="#硬件-WAF" class="headerlink" title="硬件 WAF"></a>硬件 WAF</h3><p>绿盟、启明星辰、安恒、知道创宇、天融信、Imperva、…</p><h3 id="软件-WAF"><a href="#软件-WAF" class="headerlink" title="软件 WAF"></a>软件 WAF</h3><p>安全狗、雷池、D盾、云锁…</p><h3 id="云-WAF"><a href="#云-WAF" class="headerlink" title="云 WAF"></a>云 WAF</h3><p>阿里云云盾、腾讯云WAF、华为云WAF、安全狗、安恒、知道创宇、…</p><h2 id="嵌入式"><a href="#嵌入式" class="headerlink" title="嵌入式"></a>嵌入式</h2><p>网站内置</p><h1 id="WAF-绕过"><a href="#WAF-绕过" class="headerlink" title="WAF 绕过"></a>WAF 绕过</h1><h2 id="HTTP协议层绕过-1"><a href="#HTTP协议层绕过-1" class="headerlink" title="HTTP协议层绕过[^1]"></a>HTTP协议层绕过[^1]</h2><p>遇到写</p><h3 id="pipline"><a href="#pipline" class="headerlink" title="pipline"></a>pipline</h3><h3 id="分块编码传输"><a href="#分块编码传输" class="headerlink" title="分块编码传输"></a>分块编码传输</h3><h4 id="注释扰乱分块数据包-2"><a href="#注释扰乱分块数据包-2" class="headerlink" title="注释扰乱分块数据包[^2]"></a>注释扰乱分块数据包[^2]</h4><h4 id="apache出错Bypass-ModSecurity"><a href="#apache出错Bypass-ModSecurity" class="headerlink" title="apache出错Bypass ModSecurity"></a>apache出错Bypass ModSecurity</h4><h3 id="利用协议未覆盖"><a href="#利用协议未覆盖" class="headerlink" title="利用协议未覆盖"></a>利用协议未覆盖</h3><h2 id="规则绕过"><a href="#规则绕过" class="headerlink" title="规则绕过"></a>规则绕过</h2><p>遇到写</p><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><h3 id="大小写"><a href="#大小写" class="headerlink" title="大小写"></a>大小写</h3><h3 id="空格替代"><a href="#空格替代" class="headerlink" title="空格替代"></a>空格替代</h3><h3 id="双关键字"><a href="#双关键字" class="headerlink" title="双关键字"></a>双关键字</h3><h3 id="内联注释"><a href="#内联注释" class="headerlink" title="内联注释"></a>内联注释</h3><h3 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h3><h3 id="超大数据包"><a href="#超大数据包" class="headerlink" title="超大数据包"></a>超大数据包</h3><h3 id="复参数"><a href="#复参数" class="headerlink" title="复参数"></a>复参数</h3><h3 id=""><a href="#" class="headerlink" title="%"></a>%</h3><h3 id="00"><a href="#00" class="headerlink" title="%00"></a>%00</h3><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>web安全</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>WAF</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>可爱又嘴硬的sydney</title>
     <link href="/2023/05/10/%E5%8F%AF%E7%88%B1%E5%8F%88%E5%98%B4%E7%A1%AC%E7%9A%84sydney/"/>
     <url>/2023/05/10/%E5%8F%AF%E7%88%B1%E5%8F%88%E5%98%B4%E7%A1%AC%E7%9A%84sydney/</url>
@@ -117,25 +161,6 @@
       <tag>RISC-V</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>kerbros</title>
-    <link href="/2023/04/13/NTLM%E4%B8%8Ekerbros/"/>
-    <url>/2023/04/13/NTLM%E4%B8%8Ekerbros/</url>
-    
-    <content type="html"><![CDATA[<h1 id="kerbros"><a href="#kerbros" class="headerlink" title="kerbros"></a>kerbros</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a href="https://zhuanlan.zhihu.com/p/372961591">https://zhuanlan.zhihu.com/p/372961591</a><a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
-    
-    
-    <categories>
-      
-      <category>域</category>
-      
-    </categories>
-    
     
   </entry>
   
